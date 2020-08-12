@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 import spreadsheet_maker as sm
-
+import email_manager as em
+import datetime
 
 def main():
     window = tk.Tk()
@@ -15,6 +16,7 @@ def main():
         print("\tLogged Engineer: ", engineer)
         workbook = sm.init_workbook_from_date()
         sm.add_engineer(workbook, engineer)
+        em.send_login_email(engineer, datetime.datetime.now().strftime("%H:%M:%S"))
 
     blank = ttk.Label(window, text="\t")
     blank.grid(column=0, row=0)
@@ -30,8 +32,9 @@ def main():
     button.grid(column=1, row=3)
 
     window.mainloop()
+    print("!! User tried to close CR2_Login !!")
     main()
-    print("Stop trying to close me")
+    print("Stop trying to close me :(")
 
 
 main()

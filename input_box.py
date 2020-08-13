@@ -4,13 +4,12 @@ import spreadsheet_maker as sm
 import email_manager as em
 import datetime
 
+print("!! Started CR2-Engineer Logger")
 
 def main():
     window = tk.Tk()
     window.title("CR2 Sign In")
     window.minsize(500, 250)
-
-    print("!! Started CR2-Engineer Logger")
 
     def login_is_pressed():
         engineer = name.get().capitalize()
